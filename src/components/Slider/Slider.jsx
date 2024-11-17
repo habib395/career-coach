@@ -2,7 +2,8 @@ import React from "react";
 
 const Slider = () => {
   return (
-    <div className="carousel w-full h-96  mx-auto">
+    <div className="lg:w-10/12 mx-auto my-5">
+        <div className="carousel w-full h-96">
       <div id="slide1" className="carousel-item relative w-full">
         <img
           src="../../../public/img-one.png"
@@ -45,6 +46,7 @@ const Slider = () => {
           </a>
         </div>
       </div>
+    </div>
     </div>
   );
 };
