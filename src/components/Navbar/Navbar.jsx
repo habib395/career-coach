@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { CiCloudSun } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, handleLogOut } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="bg-base-200">
       <div className="w-11/12 mx-auto min-h-20  flex justify-between items-center">
@@ -18,9 +21,27 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div>
-          <NavLink to="/login">
-          <button className="btn btn-accent">Login</button>
-          </NavLink>
+          {user?.email ? (
+            <div className="flex gap-3">
+              <div className="relative group">
+                <img
+                  className="w-12 h-12 rounded-full object-cover hover:opacity-75"
+                  src={user.photoURL}
+                  alt={user.displayName}
+                />
+                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {user.displayName}
+                </span>
+              </div>
+              <button className="btn btn-accent" onClick={handleLogOut}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <NavLink to="/login">
+              <button className="btn btn-accent">Login</button>
+            </NavLink>
+          )}
         </div>
       </div>
     </div>

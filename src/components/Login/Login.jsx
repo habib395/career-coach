@@ -1,16 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {handleGoogleLogin, handleLogin, handleLogOut} = useContext(AuthContext);
-  
+  const [error, setError] = useState()
+  const location = useLocation()
+  const navigate = useNavigate()
+
   const handleSubmit = (e) =>{
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
     handleLogin(email, password)
+    .then(res=>{
+        navigate(location.state.from)
+    })
+    .catch(err=>{
+        setError(err.message)
+    })
 }
+
+    const googleLoginHandler = () =>{
+        handleGoogleLogin()
+        .then(res=>{
+            navigate(location.state.from)
+        })
+    }
   return (
     <div>
     <form
@@ -47,11 +63,12 @@ const Login = () => {
           </a>
         </label>
       </div>
-      <button className="btn btn-active" onClick={handleGoogleLogin}>Google Login</button>
       <div className="form-control mt-6">
         <button type="submit" className="btn btn-accent">Login</button>
       </div>
       <button className="btn btn-accent" onClick={handleLogOut}>logout</button>
+      <button className="btn btn-active" onClick={googleLoginHandler}>Google Login</button>
+    {error && <p className="text-red-500">Invalid Email or Password.</p>}
       <p>New to the website? <NavLink className="text-cyan-500" to="/register">register</NavLink></p>
     </form>
     </div>
