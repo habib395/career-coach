@@ -3,7 +3,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { NavLink } from "react-router-dom";
 
 const Login = () => {
-  const {handleLogin, handleLogOut} = useContext(AuthContext);
+  const {handleGoogleLogin, handleLogin, handleLogOut} = useContext(AuthContext);
   
   const handleSubmit = (e) =>{
     e.preventDefault()
@@ -47,15 +47,13 @@ const Login = () => {
           </a>
         </label>
       </div>
+      <button className="btn btn-active" onClick={handleGoogleLogin}>Google Login</button>
       <div className="form-control mt-6">
         <button type="submit" className="btn btn-accent">Login</button>
       </div>
-    </form>
       <button className="btn btn-accent" onClick={handleLogOut}>logout</button>
-      New to the website please <NavLink to="/register">register</NavLink>
-     <button onClick={handleLogin}>Google Login</button>
-      New to the website please <NavLink to="/register">register</NavLink>
-    
+      <p>New to the website? <NavLink className="text-cyan-500" to="/register">register</NavLink></p>
+    </form>
     </div>
   );
 };

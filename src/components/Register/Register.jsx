@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
+import { NavLink } from "react-router-dom";
 
 const Register = () => {
-    const { handleRegister} = useContext(AuthContext)
+    const {handleGoogleLogin, handleRegister, manageProfile} = useContext(AuthContext)
     const [error, setError] = useState("")
 
     const handleSubmit = (e) =>{
@@ -12,7 +14,7 @@ const Register = () => {
         const email = e.target.email.value
         const image = e.target.image.value
         const password = e.target.password.value
-        console.log(name, email, image, password)
+        // console.log(name, email, image, password)
         if(password.length < 6){
             setError("Password Length must be at least 6 character.")
             return;
@@ -27,7 +29,11 @@ const Register = () => {
             )
             return;
         }
+        toast.success('Successfully created!');
         handleRegister(email, password)
+        .then(res =>{
+            manageProfile(name,image)
+        })
     }
   return (
           <form action="" onSubmit={handleSubmit} className="card-body bg-base-200 min-h-screen w-1/2 mx-auto rounded-lg my-10">
@@ -87,6 +93,8 @@ const Register = () => {
             <div className="form-control mt-6">
               <button className="btn btn-accent">Register</button>
             </div>
+            <button className="btn btn-active" onClick={handleGoogleLogin}>Google Login</button>
+           <p> Already Register?<NavLink className="text-cyan-500" to="/login">Login</NavLink></p>
             {error && <p className="text-red-500">{error}</p>}
           </form>
   );

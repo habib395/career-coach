@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../../firebase/firebase.init';
 
@@ -9,8 +9,7 @@ const AuthProvider = ({routes}) => {
     const [user, setUser] = useState(null)
 
     const handleRegister = (email, password)=>{
-        createUserWithEmailAndPassword(auth, email, password)
-        // .then(res=>signOut(auth))
+        return createUserWithEmailAndPassword(auth, email, password)
     }
     const handleLogin = (email, password)=>{
         signInWithEmailAndPassword(auth, email, password)
@@ -24,11 +23,18 @@ const AuthProvider = ({routes}) => {
         signInWithPopup(auth, googleProvider)
     }
 
+    const manageProfile = (name, image) =>{
+        updateProfile(auth.currentUser,{
+            displayName:name,photoURL:image
+        })
+    }
+
     const authInfo = {
         handleRegister,
         handleLogin,
         handleLogOut,
         handleGoogleLogin,
+        manageProfile
     }
 
     useEffect(()=>{
