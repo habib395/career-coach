@@ -1,6 +1,4 @@
 .active{
-    color: red;
-    padding: 3px;
-    border-radius: 10%;
-    background-color: white;
+    color: #53dda8;
+    text-decoration: underline;
 }

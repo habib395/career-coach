@@ -6,7 +6,7 @@ import ServiceCard from '../serviceCard/serviceCard';
 
 const Home = () => {
     const services = useLoaderData()
-    console.log(services)
+    // console.log(services)
     return (
         <div>
             <Slider></Slider>

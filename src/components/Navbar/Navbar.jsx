@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="bg-red-400">
+    <div className="bg-base-200">
       <div className="w-11/12 mx-auto min-h-20  flex justify-between items-center">
-        <div className="sm:flex sm:font-bold items-center text-sm sm:text-3xl text-white">
+        <div className="sm:flex sm:font-bold items-center text-sm sm:text-3xl text-accent">
           <CiCloudSun />
           LIFE COACH
         </div>
