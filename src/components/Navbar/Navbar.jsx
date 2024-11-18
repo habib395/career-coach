@@ -16,7 +16,8 @@ const Navbar = () => {
         </div>
         <div className="flex sm:gap-3">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/profile" className="ml-6">
+          <NavLink to="/about" className="ml-2">About</NavLink>
+          <NavLink to="/profile" className="ml-2">
             My Profile
           </NavLink>
         </div>

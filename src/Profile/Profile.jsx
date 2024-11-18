@@ -23,22 +23,22 @@ const Profile = () => {
               <form className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text">Name</span>
                   </label>
                   <input
-                    type="email"
-                    placeholder="email"
+                    type="text"
+                    placeholder="Name"
                     className="input input-bordered"
                     required
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text">PhotoURL</span>
                   </label>
                   <input
-                    type="password"
-                    placeholder="password"
+                    type="text"
+                    placeholder="PhotoURL"
                     className="input input-bordered"
                     required
                   />
@@ -49,7 +49,7 @@ const Profile = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-accent">Update</button>
+                  <button className="btn btn-accent">Save</button>
                 </div>
               </form>
             </div>
