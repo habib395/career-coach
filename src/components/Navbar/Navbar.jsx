@@ -18,7 +18,9 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div>
-          <button className="btn btn-accent">Accent</button>
+          <NavLink to="/login">
+          <button className="btn btn-accent">Login</button>
+          </NavLink>
         </div>
       </div>
     </div>
