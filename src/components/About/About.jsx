@@ -2,12 +2,16 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Servey from "../Servey/Servey";
 import Servicess from "../Servicess/Servicess";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   const services = useLoaderData();
   console.log(services);
   return (
     <div>
+        <Helmet>
+            <title>About | LIFE COACH</title>
+        </Helmet>
       <h2 className="text-2xl text-center py-10">
         <p className="text-3xl font-bold text-accent">Our approach</p>
         to life coaching

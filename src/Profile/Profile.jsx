@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
   return (
     <div className="bg-base-200">
+    <Helmet>
+      <title>Profile | LIFE COACH</title>
+    </Helmet>
       <div className=" flex w-11/12 mx-auto">
         <div className="hero">
           <div className="flex-col lg:flex-row-reverse">

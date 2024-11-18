@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 
@@ -22,13 +23,20 @@ const Details = () => {
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen my-10">
+    <div className="hero bg-base-200 min-h-screen py-10">
+
+      <Helmet>
+        <title>Details | LIFE COACH</title>
+      </Helmet>
       <div className="w-11/12 mx-auto hero-content flex-col lg:flex-row-reverse">
         <img
           src={image}
           className="max-w-lg w-full h-full rounded-lg shadow-2xl"
           alt={serviceName}
         />
+      <div>
+      <h2 className="hidden md:block text-3xl font-bold text-center text-accent opacity-35 bg-emerald-100 p-10 rounded-full">Detail Information</h2>
+      </div>
         <div>
           <h2 className="card-title text-3xl my-4">
             {counselor}

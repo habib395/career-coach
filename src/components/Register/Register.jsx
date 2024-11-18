@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -30,7 +29,6 @@ const Register = () => {
       setError("Password must contain at least one UpperCase letter");
       return;
     }
-    toast.success("Successfully created!");
     handleRegister(email, password).then((res) => {
       manageProfile(name, image);
     });
