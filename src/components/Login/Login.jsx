@@ -38,7 +38,7 @@ const Login = () => {
     <form
       action=""
       onSubmit={handleSubmit}
-      className="card-body bg-base-200 min-h-screen w-1/2 mx-auto rounded-lg my-10"
+      className="card-body bg-base-200 min-h-screen w-11/12 sm:w-1/2 mx-auto rounded-lg my-10"
     >
       <div className="form-control">
         <label className="label">

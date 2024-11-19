@@ -31,7 +31,7 @@ const Details = () => {
       <Helmet>
         <title>Details | LIFE COACH</title>
       </Helmet>
-      <div className="w-11/12 mx-auto hero-content flex-col lg:flex-row-reverse">
+      <div className="w-11/12 mx-auto hero-content px-0 flex-col lg:flex-row-reverse">
         <img
           src={image}
           className="max-w-lg w-full h-full rounded-lg shadow-2xl"

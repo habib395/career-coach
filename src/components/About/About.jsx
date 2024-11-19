@@ -3,9 +3,9 @@ import { useLoaderData } from "react-router-dom";
 import Servey from "../Servey/Servey";
 import Servicess from "../Servicess/Servicess";
 import { Helmet } from "react-helmet-async";
-import Aos from "../Aos/Aos";
 import AnimatedComponent from "../Aos/AnimatedComponent";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
   const services = useLoaderData();

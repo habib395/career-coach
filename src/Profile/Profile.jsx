@@ -10,7 +10,7 @@ const Profile = () => {
     <Helmet>
       <title>Profile | LIFE COACH</title>
     </Helmet>
-      <div className=" flex w-11/12 mx-auto">
+      <div className="flex-col sm:flex  w-11/12 mx-auto">
         <div className="hero">
           <div className="flex-col lg:flex-row-reverse">
             <div>
@@ -20,8 +20,8 @@ const Profile = () => {
             <img src={user.photoURL} className="w-72 rounded-lg" />
           </div>
         </div>
-        <div className="hero bg-base-200">
-          <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero bg-base-200 py-4">
+          <div className="hero-content px-0 flex-col lg:flex-row-reverse">
             <div className="card bg-base-100 ">
             <h2 className="text-center font-bold py-5">Update Profile</h2>
               <form className="card-body">

@@ -9,12 +9,12 @@ const Navbar = () => {
   // console.log(user);
   return (
     <div className="bg-base-200">
-      <div className="w-11/12 mx-auto min-h-20  flex justify-between items-center">
-        <div className="sm:flex sm:font-bold items-center text-sm sm:text-3xl text-accent">
-          <CiCloudSun />
-          LIFE COACH
+      <div className="w-11/12 mx-auto min-h-20 sm:flex flex-cols justify-between items-center">
+        <div className="sm:flex sm:font-bold text-center items-center text-sm md:text-3xl text-accent">
+          <div className="hidden md:block"><CiCloudSun /></div>
+          <p className="font-bold py-5">LIFE COACH</p>
         </div>
-        <div className="flex sm:gap-3">
+        <div className="flex justify-between sm:flex-row sm:gap-3">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about" className="ml-2">About</NavLink>
           <NavLink to="/profile" className="ml-2">
@@ -23,7 +23,7 @@ const Navbar = () => {
         </div>
         <div>
           {user?.email ? (
-            <div className="flex gap-3">
+            <div className="flex justify-between gap-3 py-2">
               <div className="relative group">
                 <img
                   className="w-12 h-12 rounded-full object-cover hover:opacity-75"

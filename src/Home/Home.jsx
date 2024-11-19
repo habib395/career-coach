@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import ServiceCard from "../serviceCard/serviceCard";
 import { Helmet } from "react-helmet-async";
 
+
 const Home = () => {
   const services = useLoaderData();
   // console.log(services)
@@ -21,7 +22,7 @@ const Home = () => {
         helicopter vision - and to <br></br> shed new light on difficult
         situations. 
       </h6>
-      <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 my-10">
+      <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 my-10 ">
         {services.map((service) => (
           <ServiceCard service={service}></ServiceCard>
         ))}

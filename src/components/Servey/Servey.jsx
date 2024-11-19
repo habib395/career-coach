@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Servey = ({ service }) => {
   const { id, serviceName, category, pricing, rating } =
     service;
   return (
-    <div className="card bg-base-100 border-2">
+    <div className="card bg-base-100 border-2" data-aos="fade-left">
       <div className="card-body">
         <h2 className="card-title">
           {serviceName}
