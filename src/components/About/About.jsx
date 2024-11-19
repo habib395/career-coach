@@ -15,12 +15,6 @@ const About = () => {
         <Helmet>
             <title>About | LIFE COACH</title>
         </Helmet>
-        <h2 className="text-2xl text-center py-10">
-        <p className="text-3xl font-bold text-accent">Join Our Team</p>
-      </h2>
-      <h6 className="text-lg text-center py-3">
-        They can act as a sounding board through tough decisions, help sharpen skills, and motivate.
-      </h6>
         <AnimatedComponent></AnimatedComponent>
       <h2 className="text-2xl text-center py-10">
         <p className="text-3xl font-bold text-accent">Our approach</p>

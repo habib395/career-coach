@@ -14,7 +14,7 @@ const Servicess = ({servicess}) => {
         <div className="card-body">
           <h2 className="card-title">
             {serviceName}
-            <div className="badge badge-secondary">{pricing}</div>
+            <div className="badge badge-accent">{pricing}</div>
           </h2>
           <p>{counselor}</p>
         </div>
