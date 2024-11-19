@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
 
 const Details = () => {
   const {
@@ -20,6 +22,7 @@ const Details = () => {
   const handleFeedback = () => {
     setFeedback(inputValue);
     setInputValue(""); 
+    toast("Submitted Feedback")
   };
 
   return (
@@ -84,6 +87,7 @@ const Details = () => {
           <div className="font-bold my-10">Feedback: {feedback}</div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -50,8 +50,12 @@ const router = createBrowserRouter([
             {
                 path:"/register",
                 element: <Register></Register>
-            },
-        ]
+            }
+        ],
+    },
+    {
+        path: "*",
+        element:<div className=" w-1/2 font-bold mx-auto text-black text-3xl text-center bg-[#53dda8] my-10 py-10 rounded-full opacity-90">Page not Found</div>, 
     }
 ])
 

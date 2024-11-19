@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; 
+
 
 const Login = () => {
   const {handleGoogleLogin, handleLogin, handleLogOut} = useContext(AuthContext);
@@ -15,16 +18,19 @@ const Login = () => {
     handleLogin(email, password)
     .then(res=>{
         navigate(location.state.from)
+        // toast.success("login Successfully")
     })
     .catch(err=>{
         setError(err.message)
+        toast.error("Invalid Email or Password.");
     })
 }
 
     const googleLoginHandler = () =>{
         handleGoogleLogin()
         .then(res=>{
-            navigate(location.state.from)
+          navigate(location.state.from)
+          // toast("Login Successfully.")
         })
     }
   return (
@@ -68,9 +74,10 @@ const Login = () => {
       </div>
       <button className="btn btn-accent" onClick={handleLogOut}>logout</button>
       <button className="btn btn-active" onClick={googleLoginHandler}>Google Login</button>
-    {error && <p className="text-red-500">Invalid Email or Password.</p>}
+      {error && <p className="text-red-500">Invalid Email or Password.</p>}
       <p>New to the website? <NavLink className="text-cyan-500" to="/register">register</NavLink></p>
     </form>
+    <ToastContainer /> 
     </div>
   );
 };

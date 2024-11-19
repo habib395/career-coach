@@ -3,15 +3,25 @@ import { useLoaderData } from "react-router-dom";
 import Servey from "../Servey/Servey";
 import Servicess from "../Servicess/Servicess";
 import { Helmet } from "react-helmet-async";
+import Aos from "../Aos/Aos";
+import AnimatedComponent from "../Aos/AnimatedComponent";
+
 
 const About = () => {
   const services = useLoaderData();
-  console.log(services);
+  // console.log(services);
   return (
     <div>
         <Helmet>
             <title>About | LIFE COACH</title>
         </Helmet>
+        <h2 className="text-2xl text-center py-10">
+        <p className="text-3xl font-bold text-accent">Join Our Team</p>
+      </h2>
+      <h6 className="text-lg text-center py-3">
+        They can act as a sounding board through tough decisions, help sharpen skills, and motivate.
+      </h6>
+        <AnimatedComponent></AnimatedComponent>
       <h2 className="text-2xl text-center py-10">
         <p className="text-3xl font-bold text-accent">Our approach</p>
         to life coaching
@@ -27,7 +37,6 @@ const About = () => {
           <Servey service={service}></Servey>
         ))}
       </div>
-
       <h2 className="text-2xl text-center py-10">
         <p className="text-3xl font-bold text-accent"> Dedicated to your</p>
         life improvement.
@@ -40,7 +49,6 @@ const About = () => {
           <Servicess servicess={servicess}></Servicess>
         ))}
       </div>
-        
     </div>
   );
 };
