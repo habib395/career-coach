@@ -3,6 +3,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import auth from '../../firebase/firebase.init';
 import { toast } from 'react-toastify';
 
+
 export const AuthContext = createContext()
 const AuthProvider = ({routes}) => {
     const googleProvider = new GoogleAuthProvider()
@@ -32,7 +33,6 @@ const AuthProvider = ({routes}) => {
             toast.error(`Google Login Failed: ${error.message}`);
             console.error("Google Login Error:", error);
           });
-
     }
 
     const manageProfile = (name, image) =>{

@@ -5,6 +5,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; 
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const { handleGoogleLogin, handleRegister, manageProfile, updateUserProfile} =
@@ -135,7 +136,7 @@ const Register = () => {
           className="btn btn-active mt-4"
           onClick={handleGoogleLogin}
         >
-          Google Login
+          <FaGoogle />Continue With Google
         </button>
         <p className="mt-4">
           Already Registered?{" "}
