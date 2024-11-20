@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; 
 
 const Register = () => {
-  const { handleGoogleLogin, handleRegister, manageProfile } =
+  const { handleGoogleLogin, handleRegister, manageProfile, updateUserProfile} =
     useContext(AuthContext);
+    const navigate = useNavigate()
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -19,6 +20,22 @@ const Register = () => {
     const email = e.target.email.value;
     const image = e.target.image.value;
     const password = e.target.password.value;
+
+    // createNewUser(email, password)
+    // .then((result) =>{
+    //   const user = result.user
+    //   setUser(user)
+    //   updateUserProfile({displayName:name , photoURL:image})
+    //   .then(()=>{
+    //     navigate("/")
+    //   })
+    //   .catch((err)=>{
+    //     console.log(err)
+    //   })
+    // })
+    // .catch((err) => {
+    //   console.log(err)
+    // })
 
  
     if (password.length < 6) {
@@ -109,14 +126,9 @@ const Register = () => {
           >
             {showPassword ? <FaRegEyeSlash /> : <MdOutlineRemoveRedEye />}
           </button>
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover">
-              Forgot password?
-            </a>
-          </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-accent">Register</button>
+          <button className="btn w-full btn-accent">Register</button>
         </div>
         <button
           type="button"
