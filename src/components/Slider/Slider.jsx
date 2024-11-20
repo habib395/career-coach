@@ -21,7 +21,7 @@ const Slider = () => {
             current === 1 ? "block" : "hidden"
           }`}
         >
-          <img src="../../../public/img-one.png" className="w-full" alt="Slide 1" />
+          <img src="https://i.ibb.co.com/dGjkKMP/img-one.png" className="w-full" alt="Slide 1" />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <button
               className="btn btn-circle"
@@ -44,7 +44,7 @@ const Slider = () => {
             current === 2 ? "block" : "hidden"
           }`}
         >
-          <img src="../../../public/img-two.png" className="w-full" alt="Slide 2" />
+          <img src="https://i.ibb.co.com/h9Tz5GC/img-two.png" className="w-full" alt="Slide 2" />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <button
               className="btn btn-circle"
@@ -67,7 +67,7 @@ const Slider = () => {
             current === 3 ? "block" : "hidden"
           }`}
         >
-          <img src="../../../public/img-three.png" className="w-full" alt="Slide 3" />
+          <img src="https://i.ibb.co.com/KbYfsQF/img-three.png" className="w-full" alt="Slide 3" />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <button
               className="btn btn-circle"
