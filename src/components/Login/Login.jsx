@@ -4,13 +4,16 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../../firebase/firebase.init";
 
 const Login = () => {
-  const { handleGoogleLogin, handleLogin } = useContext(AuthContext);
+  const {  handleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +28,16 @@ const Login = () => {
       });
   };
 
+  const handleGoogleLoginTwo = () =>{
+    signInWithPopup(auth, googleProvider)
+    .then((result) =>{
+      navigate(location.state?.from || "/");
+      toast.success(`Welcome ${result.user.display})! Successfully logged In.`)
+    })
+    .catch((error) =>{
+      toast.error(`Google Login Failed: ${error.massege}`)
+    })
+  }
 
   return (
     <div>
@@ -68,7 +81,7 @@ const Login = () => {
             Login
           </button>
         </div>
-        <button className="btn btn-active mt-4" onClick={handleGoogleLogin}>
+        <button className="btn btn-active mt-4" onClick={handleGoogleLoginTwo}>
         <FaGoogle />Continue With Google
         </button>
         {error && <p className="text-red-500">Invalid Email or Password.</p>}

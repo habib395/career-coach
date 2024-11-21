@@ -14,10 +14,10 @@ const Navbar = () => {
           <div className="hidden md:block"><CiCloudSun /></div>
           <p className="font-bold py-5">LIFE COACH</p>
         </div>
-        <div className="flex justify-between sm:flex-row sm:gap-3">
+        <div className="flex font-semibold justify-between sm:flex-row sm:gap-3">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/about" className="ml-2">About</NavLink>
-          <NavLink to="/profile" className="ml-2">
+          <NavLink to="/about" className="ml-5">About</NavLink>
+          <NavLink to="/profile" className="ml-5">
             My Profile
           </NavLink>
         </div>

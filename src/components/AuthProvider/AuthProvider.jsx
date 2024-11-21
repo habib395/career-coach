@@ -1,14 +1,10 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../../firebase/firebase.init';
 import { toast } from 'react-toastify';
 
-
 export const AuthContext = createContext()
-
-
 const AuthProvider = ({routes}) => {
-    const googleProvider = new GoogleAuthProvider()
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -24,17 +20,6 @@ const AuthProvider = ({routes}) => {
         signOut(auth)
         toast("Logout SuccessFully")
     }
-    const handleGoogleLogin = () =>{
-        return signInWithPopup(auth, googleProvider)
-        .then((result) => {
-            toast.success(`Welcome ${result.user.displayName}! Successfully logged in.`);
-            console.log("Google Login Success:", result.user);
-          })
-          .catch((error) => {
-            toast.error(`Google Login Failed: ${error.message}`);
-            console.error("Google Login Error:", error);
-          });
-    }
 
     const manageProfile = (name, image) =>{
         updateProfile(auth.currentUser,{
@@ -46,12 +31,10 @@ const AuthProvider = ({routes}) => {
         return updateProfile(auth.currentUser , updatedData)
     }
 
-
     const authInfo = {
         handleRegister,
         handleLogin,
         handleLogOut,
-        handleGoogleLogin,
         manageProfile,
         user,
         setUser,

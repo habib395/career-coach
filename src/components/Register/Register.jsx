@@ -1,17 +1,22 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; 
 import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../../firebase/firebase.init";
 
 const Register = () => {
-  const { handleGoogleLogin, handleRegister, manageProfile } =
+  const { handleRegister, manageProfile } =
     useContext(AuthContext);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,8 +26,6 @@ const Register = () => {
     const image = e.target.image.value;
     const password = e.target.password.value;
 
-
- 
     if (password.length < 6) {
       setError("Password length must be at least 6 characters.");
       toast.error("Password length must be at least 6 characters.");
@@ -43,6 +46,7 @@ const Register = () => {
       .then((res) => {
         manageProfile(name, image);
         toast.success("Registration successful!");
+        navigate(location.state?.from || "/");
       })
       .catch((err) => {
         setError(err.message);
@@ -50,12 +54,24 @@ const Register = () => {
       });
   };
 
+  const handleGoogleLoginTwo = () =>{
+    signInWithPopup(auth, googleProvider)
+    .then((result) =>{
+      navigate(location.state?.from || "/");
+      toast.success(`Welcome ${result.user.displayName}! Successfully logged in.`);
+    })
+    .catch((error) => {
+              toast.error(`Google Login Failed: ${error.message}`);
+            });
+  }
+
+
   return (
     <>
       <form
         action=""
         onSubmit={handleSubmit}
-        className="card-body bg-base-200 min-h-screen w-1/2 mx-auto rounded-lg my-10"
+        className="card-body bg-base-200 w-11/12 mx-auto min-h-screen md:w-1/2 rounded-lg my-10"
       >
         <div className="form-control">
           <label className="label">
@@ -113,12 +129,12 @@ const Register = () => {
           </button>
         </div>
         <div className="form-control mt-6">
-          <button className="btn w-full btn-accent">Register</button>
+          <button onClick={handleRegister} className="btn w-full btn-accent">Register</button>
         </div>
         <button
           type="button"
           className="btn btn-active mt-4"
-          onClick={handleGoogleLogin}
+          onClick={handleGoogleLoginTwo}
         >
           <FaGoogle />Continue With Google
         </button>

@@ -17,8 +17,8 @@ const Slider = () => {
       return () => clearInterval(interval)
   }, [])
   return (
-    <div className="lg:w-10/12 mx-auto my-5">
-      <div className="carousel w-full h-auto">
+    <div>
+      <div className="carousel w-full  max-h-96">
         <div
           id="slide1"
           className={`carousel-item relative w-full ${
