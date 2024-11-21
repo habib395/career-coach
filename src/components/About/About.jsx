@@ -9,9 +9,8 @@ import "aos/dist/aos.css";
 
 const About = () => {
   const services = useLoaderData();
-  // console.log(services);
   return (
-    <div>
+    <div className="overflow-hidden">
         <Helmet>
             <title>About | LIFE COACH</title>
         </Helmet>

@@ -35,7 +35,7 @@ const Profile = () => {
       </Helmet>
       <ToastContainer />
       <div className="flex-row sm:flex w-11/12 mx-auto">
-        <div className="hero">
+        <div className="hero bg-base-300 rounded-lg">
           <div className="flex-col lg:flex-row-reverse">
             {user && (
               <div>
@@ -51,7 +51,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="hero bg-base-200 py-4">
-          <div className="hero-content px-0 flex-col lg:flex-row-reverse">
+          <div className="hero-content flex-col lg:flex-row-reverse px-0">
             <div className="card bg-base-100 ">
               <h2 className="text-center font-bold py-5">Update Profile</h2>
               <form onSubmit={updateSubmit} className="card-body">

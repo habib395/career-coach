@@ -5,9 +5,10 @@ import { toast } from 'react-toastify';
 
 
 export const AuthContext = createContext()
+
+
 const AuthProvider = ({routes}) => {
     const googleProvider = new GoogleAuthProvider()
-    
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -45,9 +46,6 @@ const AuthProvider = ({routes}) => {
         return updateProfile(auth.currentUser , updatedData)
     }
 
-    // const createNewUser = (email, password) =>{
-    //     return createUserWithEmailAndPassword(auth, email, password)
-    // }
 
     const authInfo = {
         handleRegister,
@@ -58,12 +56,11 @@ const AuthProvider = ({routes}) => {
         user,
         setUser,
         loading,
-        updateUserProfile
+        updateUserProfile,
     }
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            // console.log(currentUser)
             if(currentUser){
                 setUser(currentUser)
             }else{
@@ -76,6 +73,7 @@ const AuthProvider = ({routes}) => {
             }
         })
     },[])
+
 
     return (
         <div>
