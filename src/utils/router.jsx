@@ -60,7 +60,10 @@ const router = createBrowserRouter([
     },
     {
         path: "*",
-        element:<div className=" w-1/2 font-bold mx-auto text-black text-3xl text-center bg-[#53dda8] my-10 py-10 rounded-full opacity-90">Page not Found</div>, 
+        element:<div className=" w-1/2 font-bold mx-auto text-black text-3xl text-center bg-[#53dda8] my-10 py-10 rounded-full opacity-90">Page not Found 
+        <br />
+        <a href="/" className="text-blue-500 underline mt-4 block">Go back to Home</a>
+        </div>,
     }
 ])
 
