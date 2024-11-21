@@ -12,4 +12,4 @@
 
 --Responsive Design: The layout for the services is designed to be responsive using Tailwind CSS classes like grid-cols-1, sm:grid-cols-2, and md:grid-cols-3. This ensures proper rendering across devices of various screen sizes.
 
-## live site URL: "https://burly-box.surge.sh/"
+## live site URL: "https://burly-box.surge.sh/

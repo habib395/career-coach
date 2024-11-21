@@ -8,9 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
-  const { handleGoogleLogin, handleRegister, manageProfile, updateUserProfile} =
+  const { handleGoogleLogin, handleRegister, manageProfile } =
     useContext(AuthContext);
-    const navigate = useNavigate()
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -22,21 +21,6 @@ const Register = () => {
     const image = e.target.image.value;
     const password = e.target.password.value;
 
-    // createNewUser(email, password)
-    // .then((result) =>{
-    //   const user = result.user
-    //   setUser(user)
-    //   updateUserProfile({displayName:name , photoURL:image})
-    //   .then(()=>{
-    //     navigate("/")
-    //   })
-    //   .catch((err)=>{
-    //     console.log(err)
-    //   })
-    // })
-    // .catch((err) => {
-    //   console.log(err)
-    // })
 
  
     if (password.length < 6) {
