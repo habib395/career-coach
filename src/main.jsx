@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")).render(
     <HelmetProvider>
       <AuthProvider routes={<RouterProvider router={router}></RouterProvider>}>
       <ToastContainer />
-      </AuthProvider>
+      </AuthProvider> 
     </HelmetProvider>
   </StrictMode>
 ); 

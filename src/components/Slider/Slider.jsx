@@ -16,6 +16,8 @@ const Slider = () => {
 
       return () => clearInterval(interval)
   }, [])
+
+
   return (
     <div>
       <div className="carousel w-full  max-h-96">
@@ -41,6 +43,10 @@ const Slider = () => {
             </button>
           </div>
         </div>
+
+
+
+
 
         <div
           id="slide2"

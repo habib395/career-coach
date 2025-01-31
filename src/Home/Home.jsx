@@ -31,3 +31,14 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+// new repo
+// echo "# assignment-eight-first-life-used-ph" >> README.md
+// git init
+// git add README.md
+// git commit -m "first commit"
+// git branch -M main
+// git remote add origin https://github.com/habib395/assignment-eight-first-life-used-ph.git
+// git push -u origin main
